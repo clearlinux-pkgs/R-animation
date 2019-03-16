@@ -4,24 +4,19 @@
 #
 Name     : R-animation
 Version  : 2.6
-Release  : 4
+Release  : 5
 URL      : https://cran.r-project.org/src/contrib/animation_2.6.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/animation_2.6.tar.gz
-Summary  : A Gallery of Animations in Statistics and Utilities to Create
+Summary  : Provides functions for animations in statistics
 Group    : Development/Tools
 License  : MIT
-Requires: R-magick
 BuildRequires : R-magick
 BuildRequires : buildreq-R
 
 %description
-in probability theory, mathematical statistics, multivariate statistics,
-    non-parametric statistics, sampling survey, linear models, time series,
-    computational statistics, data mining and machine learning. These functions
-    may be helpful in teaching statistics and data analysis. Also provided in this
-    package are a series of functions to save animations to various formats, e.g.
-    Flash, 'GIF', HTML pages, 'PDF' and videos. 'PDF' animations can be inserted
-    into 'Sweave' / 'knitr' easily.
+# animation
+[![Build Status](https://travis-ci.org/yihui/animation.svg)](https://travis-ci.org/yihui/animation)
+[![Downloads from the RStudio CRAN mirror](https://cranlogs.r-pkg.org/badges/animation)](https://cran.r-project.org/package=animation)
 
 %prep
 %setup -q -c -n animation
@@ -31,10 +26,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1544545663
+export SOURCE_DATE_EPOCH=1552711206
 
 %install
-export SOURCE_DATE_EPOCH=1544545663
+export SOURCE_DATE_EPOCH=1552711206
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -70,8 +65,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library animation|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  animation || :
 
 
 %files
@@ -148,3 +142,5 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/animation/misc/scianimator/js/jquery-1.4.4.min.js
 /usr/lib64/R/library/animation/misc/scianimator/js/jquery.scianimator.min.js
 /usr/lib64/R/library/animation/misc/scianimator/js/template.js
+/usr/lib64/R/library/animation/tests/run-all.R
+/usr/lib64/R/library/animation/tests/testit/utils.R
