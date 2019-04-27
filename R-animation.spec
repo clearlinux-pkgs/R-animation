@@ -4,7 +4,7 @@
 #
 Name     : R-animation
 Version  : 2.6
-Release  : 8
+Release  : 9
 URL      : https://cran.r-project.org/src/contrib/animation_2.6.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/animation_2.6.tar.gz
 Summary  : Provides functions for animations in statistics
