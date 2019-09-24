@@ -4,19 +4,24 @@
 #
 Name     : R-animation
 Version  : 2.6
-Release  : 12
+Release  : 13
 URL      : https://cran.r-project.org/src/contrib/animation_2.6.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/animation_2.6.tar.gz
-Summary  : Provides functions for animations in statistics
+Summary  : A Gallery of Animations in Statistics and Utilities to Create
 Group    : Development/Tools
 License  : MIT
+Requires: R-magick
 BuildRequires : R-magick
 BuildRequires : buildreq-R
 
 %description
-# animation
-[![Build Status](https://travis-ci.org/yihui/animation.svg)](https://travis-ci.org/yihui/animation)
-[![Downloads from the RStudio CRAN mirror](https://cranlogs.r-pkg.org/badges/animation)](https://cran.r-project.org/package=animation)
+in probability theory, mathematical statistics, multivariate statistics,
+    non-parametric statistics, sampling survey, linear models, time series,
+    computational statistics, data mining and machine learning. These functions
+    may be helpful in teaching statistics and data analysis. Also provided in this
+    package are a series of functions to save animations to various formats, e.g.
+    Flash, 'GIF', HTML pages, 'PDF' and videos. 'PDF' animations can be inserted
+    into 'Sweave' / 'knitr' easily.
 
 %prep
 %setup -q -c -n animation
@@ -25,13 +30,13 @@ BuildRequires : buildreq-R
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552711206
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1569353596
 
 %install
-export SOURCE_DATE_EPOCH=1552711206
+export SOURCE_DATE_EPOCH=1569353596
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -60,12 +65,12 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  animation || :
+R CMD check --no-manual --no-examples --no-codoc animation || :
 
 
 %files
