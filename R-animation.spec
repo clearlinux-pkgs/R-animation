@@ -4,39 +4,43 @@
 #
 Name     : R-animation
 Version  : 2.6
-Release  : 17
+Release  : 18
 URL      : https://cran.r-project.org/src/contrib/animation_2.6.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/animation_2.6.tar.gz
-Summary  : Provides functions for animations in statistics
+Summary  : A Gallery of Animations in Statistics and Utilities to Create
 Group    : Development/Tools
 License  : MIT
 Requires: R-magick
 BuildRequires : R-magick
 BuildRequires : buildreq-R
-BuildRequires : util-linux
 
 %description
-# animation
-[![Build Status](https://travis-ci.org/yihui/animation.svg)](https://travis-ci.org/yihui/animation)
-[![Downloads from the RStudio CRAN mirror](https://cranlogs.r-pkg.org/badges/animation)](https://cran.r-project.org/package=animation)
+in probability theory, mathematical statistics, multivariate statistics,
+    non-parametric statistics, sampling survey, linear models, time series,
+    computational statistics, data mining and machine learning. These functions
+    may be helpful in teaching statistics and data analysis. Also provided in this
+    package are a series of functions to save animations to various formats, e.g.
+    Flash, 'GIF', HTML pages, 'PDF' and videos. 'PDF' animations can be inserted
+    into 'Sweave' / 'knitr' easily.
 
 %prep
 %setup -q -c -n animation
+cd %{_builddir}/animation
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571795842
+export SOURCE_DATE_EPOCH=1589759566
 
 %install
-export SOURCE_DATE_EPOCH=1571795842
+export SOURCE_DATE_EPOCH=1589759566
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
