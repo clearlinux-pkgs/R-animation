@@ -4,7 +4,7 @@
 #
 Name     : R-animation
 Version  : 2.7
-Release  : 38
+Release  : 39
 URL      : https://cran.r-project.org/src/contrib/animation_2.7.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/animation_2.7.tar.gz
 Summary  : A Gallery of Animations in Statistics and Utilities to Create
